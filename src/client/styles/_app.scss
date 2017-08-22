@@ -1,0 +1,298 @@
+/**
+ *
+ * Copyright 2017 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  background: #1D2227;
+  color: #FFF;
+  height: 100%;
+  padding-top: 48px;
+
+  &.offline {
+    .app__header {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+button {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: #19D5B9;
+}
+
+.app {
+  &__header {
+    position: fixed;
+    background: #1D2227;
+    top: 0;
+    width: 100%;
+    height: 48px;
+    padding: 0 8px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+
+    &::before {
+      display: flex;
+      text-transform: uppercase;
+      align-items: center;
+      justify-content: center;
+      content: 'Downloads only';
+      font-size: 13px;
+      text-align: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 150px;
+      height: 100%;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      background: darken(#1D2227, 5%);
+      opacity: 0;
+      pointer-events: none;
+      color: rgba(255, 255, 255, 0.75);
+      transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+    }
+
+    &-menu-toggle {
+      border: none;
+      height: 24px;
+      display: block;
+      padding: 0 0 0 32px;
+      margin: 0;
+      color: #FFF;
+      background: url(/static/images/header/ic_menu_white_24px.svg) left center no-repeat;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    &-content {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      position: relative;
+
+      &-link {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        text-decoration: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+        &-icon {
+          width: 24px;
+          height: 24px;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+.content-block {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.main-content {
+  position: relative;
+
+  &::before {
+    content: '';
+    transform: rotate(-180deg);
+    background-image: linear-gradient(-180deg, rgba(255,255,255,0.00) 50%, rgba(255,255,255,0.10) 100%);
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+.toggle-offline {
+  svg {
+    pointer-events: none;
+  }
+
+  .spinner {
+    display: none;
+    width: 24px;
+    height: 24px;
+    background: url(/static/images/spinner.png) center center no-repeat;
+    background-size: 16px 16px;
+    border-radius: 50%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+  }
+
+  .is-offline {
+    display: none;
+  }
+
+  .is-downloading {
+    display: block;
+  }
+
+  &.offline--available {
+    .is-offline {
+      display: block;
+    }
+
+    .is-downloading {
+      display: none;
+    }
+
+    .spinner {
+      display: none;
+    }
+  }
+
+  &--indeterminate {
+    .is-offline {
+      display: none;
+    }
+
+    .is-downloading {
+      display: none;
+    }
+
+    .spinner {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    padding-top: 56px;
+  }
+
+  .app__header {
+    height: 56px;
+
+    &-content-link-title {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (min-width: 1180px) {
+  body {
+    padding-top: 64px;
+  }
+
+  .app__header {
+    height: 64px;
+    padding: 0 16px;
+
+    &-content-link-title {
+      font-size: 20px;
+    }
+  }
+}
+
+.fade-and-scale-in {
+  animation-name: fadeAndScaleIn;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+  animation-fill-mode: forwards;
+}
+
+.fade-and-scale-in-centered {
+  animation-name: fadeAndScaleInCentered;
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+  animation-fill-mode: forwards;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+  animation-fill-mode: forwards;
+}
+
+.rotate {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeAndScaleIn {
+  from {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeAndScaleInCentered {
+  from {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

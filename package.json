@@ -1,0 +1,74 @@
+{
+  "name": "googlechrome-biograf",
+  "version": "12.1.0",
+  "description": "A sample video PWA for the web",
+  "main": "src/server/index.js",
+  "scripts": {
+    "start": "node dist/server/index.js",
+    "clean-dist": "rm -rf dist",
+    "make-dist": "mkdirp dist",
+    "make-client": "mkdirp dist/client",
+    "copy-all": "npm run copy-server && npm run copy-config && npm run copy-views && npm run copy-client",
+    "copy-server": "cp -R src/server dist",
+    "copy-config": "cp -R src/config dist",
+    "copy-views": "cp -R src/views dist",
+    "copy-client": "copy \"src/client/**/*.*\" \"!src/client/scripts/**/*.*\" \"!src/client/styles/**/*.*\" \"!src/client/videos/**/*.*\" dist/client",
+    "serve": "nodemon -e dust,js,css,json dist/server/index.js",
+    "dev": "npm run build && concurrently \"npm run watch\" \"npm run serve\"",
+    "watch": "npm-watch",
+    "build": "npm run clean-dist && npm run make-dist && npm run make-client && npm run copy-all && npm run build-js && npm run build-sass && npm run build-resource-list",
+    "build-js": "node build/transpile-javascript.js",
+    "build-resource-list": "node build/build-resource-list.js",
+    "build-sass": "node build/transpile-sass.js",
+    "build-js-and-sass": "npm run build-js && npm run build-sass && npm run build-resource-list",
+    "release": "npm version patch && npm run build"
+  },
+  "watch": {
+    "build-js-and-sass": {
+      "patterns": "src/client",
+      "extensions": [
+        "scss",
+        "js"
+      ]
+    },
+    "copy-server": "src/server",
+    "copy-views": {
+      "patterns": "src/views",
+      "extensions": [
+        "dust",
+        "css",
+        "js"
+      ]
+    },
+    "copy-client": "src/client"
+  },
+  "author": "Paul Lewis",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-babili": "0.0.10",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "clean-css": "^4.0.2",
+    "concurrently": "^3.5.0",
+    "copy": "^0.3.0",
+    "get-pixels": "^3.3.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.4.0",
+    "nodemon": "^1.11.0",
+    "npm-watch": "^0.1.7",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "walk": "^2.3.9",
+    "yargs": "^6.6.0"
+  },
+  "dependencies": {
+    "adaro": "^1.0.4",
+    "compression": "^1.6.2",
+    "connect-memcached": "^0.2.0",
+    "dustjs-helpers": "^1.7.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "passport": "^0.3.2",
+    "passport-google-oauth20": "^1.0.0"
+  }
+}
