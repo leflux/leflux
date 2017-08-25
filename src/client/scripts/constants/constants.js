@@ -19,7 +19,7 @@
 
 const constants = {
 
-  APP_NAME: 'Biograf',
+  APP_NAME: 'LeFlux',
 
   // Half a meg chunks.
   CHUNK_SIZE: 1024 * 512,

@@ -35,7 +35,7 @@ const dustOptions = {
 };
 
 const defaultViewOptions = {
-  title: 'Biograf - Settings',
+  title: 'LeFlux - Settings',
   version,
   scripts: [
     'dist/client/scripts/app.js',

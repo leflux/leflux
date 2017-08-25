@@ -1,6 +1,6 @@
 {
-  "name": "Biograf",
-  "short_name": "Biograf",
+  "name": "LeFlux",
+  "short_name": "LeFlux",
   "icons": [{
     "src": "/static/images/icon@256.png",
     "sizes": "256x256",
