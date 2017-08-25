@@ -57,7 +57,7 @@ settings.use(require('../middleware/no-cache.js'));
 settings.get('/', (req, res) => {
   const viewOptions = Object.assign({}, defaultViewOptions, {
     css: [
-      'dist/client/styles/biograf.css'
+      'dist/client/styles/leflux.css'
     ],
     colors: {
       primary: {

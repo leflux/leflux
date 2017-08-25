@@ -1,7 +1,7 @@
 {
-  "name": "googlechrome-biograf",
-  "version": "12.1.0",
-  "description": "A sample video PWA for the web",
+  "name": "leflux",
+  "version": "13.0.0",
+  "description": "General purpose video-on-demand media Progressive Web App",
   "main": "src/server/index.js",
   "scripts": {
     "start": "node dist/server/index.js",

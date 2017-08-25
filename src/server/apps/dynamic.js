@@ -118,7 +118,7 @@ dynamic.get('/*', (req, res) => {
     title: `Biograf - ${search.title}`,
     item: search.items,
     css: [
-      'dist/client/styles/biograf.css'
+      'dist/client/styles/leflux.css'
     ],
     inlines: {
       js: inlines.js
