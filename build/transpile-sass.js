@@ -30,8 +30,8 @@ const files = [
     out: path.join(outPath, 'views', 'inlines', 'fonts.css')
   },
   {
-    in: path.join(inPath, 'biograf.scss'),
-    out: path.join(outPath, 'client', 'styles', 'biograf.css')
+    in: path.join(inPath, 'leflux.scss'),
+    out: path.join(outPath, 'client', 'styles', 'leflux.css')
   }
 ];
 

@@ -54,7 +54,7 @@ const dustOptions = {
 };
 
 const defaultViewOptions = {
-  title: 'Biograf',
+  title: 'LeFlux',
   shows: library.shows,
   version,
   scripts: [
@@ -115,10 +115,10 @@ dynamic.get('/*', (req, res) => {
       videoLibrary.getOtherTitlesInShow(library.shows, pathParts[0], fullPath);
 
   const viewOptions = Object.assign({}, defaultViewOptions, {
-    title: `Biograf - ${search.title}`,
+    title: `LeFlux - ${search.title}`,
     item: search.items,
     css: [
-      'dist/client/styles/biograf.css'
+      'dist/client/styles/leflux.css'
     ],
     inlines: {
       js: inlines.js

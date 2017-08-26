@@ -84,6 +84,6 @@ class SettingsManager {
   }
 }
 
-window.biograf = window.biograf || {};
-window.biograf.settingsManager = window.biograf.settingsManager ||
+window.leflux = window.leflux || {};
+window.leflux.settingsManager = window.leflux.settingsManager ||
     new SettingsManager();

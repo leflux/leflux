@@ -35,7 +35,7 @@ const dustOptions = {
 };
 
 const defaultViewOptions = {
-  title: 'Biograf - Downloads',
+  title: 'LeFlux - Downloads',
   version,
   scripts: [
     'dist/client/scripts/app.js',
@@ -57,7 +57,7 @@ downloads.use(require('../middleware/no-cache.js'));
 downloads.get('/', (req, res) => {
   const viewOptions = Object.assign({}, defaultViewOptions, {
     css: [
-      'dist/client/styles/biograf.css'
+      'dist/client/styles/leflux.css'
     ],
     colors: {
       primary: {

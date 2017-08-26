@@ -402,5 +402,5 @@ class App {
   }
 }
 
-window.biograf = window.biograf || {};
-window.biograf.app = window.biograf.app || new App();
+window.leflux = window.leflux || {};
+window.leflux.app = window.leflux.app || new App();

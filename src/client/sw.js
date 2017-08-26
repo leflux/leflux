@@ -28,7 +28,7 @@ importScripts('{@hash path="dist/client/scripts/background-fetch-helper.js"}{/ha
 
 // TODO: Hook this up to pull from Constants.
 
-const NAME = 'Biograf';
+const NAME = 'LeFlux';
 const VERSION = '{version}';
 
 self.oninstall = evt => {

@@ -143,5 +143,5 @@ class Downloads {
   }
 }
 
-window.biograf = window.biograf || {};
-window.biograf.downloads = window.biograf.downloads || new Downloads();
+window.leflux = window.leflux || {};
+window.leflux.downloads = window.leflux.downloads || new Downloads();
