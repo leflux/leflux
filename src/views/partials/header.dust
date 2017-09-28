@@ -18,7 +18,7 @@ limitations under the License.
     <meta name="viewport" content="width=device-width,minimum-scale=1.0">
     <meta name="theme-color" content="#1D2227">
 
-    <link rel="icon" href="/static/images/icon@256.png">
+    <link rel="icon" href="/static/images/leflux-icon@256.png">
     <link rel="manifest" href="{@hash path="dist/client/manifest.json"}{/hash}">
     <title>{title}</title>
 
