@@ -2,13 +2,13 @@
   "name": "LeFlux",
   "short_name": "LeFlux",
   "icons": [{
-    "src": "/static/images/icon@256.png",
-    "sizes": "256x256",
+    "src": "/static/images/leflux-icon@192.png",
+    "sizes": "192x192",
     "type": "image/png"
   },
   {
-    "src": "/static/images/icon@512.png",
-    "sizes": "512x512",
+    "src": "/static/images/lefux-icon@256.png",
+    "sizes": "256x256",
     "type": "image/png"
   }],
   "start_url": "/",
